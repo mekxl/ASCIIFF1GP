@@ -1,41 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ASCII F1 Grand Prix</title>
   <style>
     body {
-      background-color: black;
-      color: lime;
+      background: #000;
+      color: #0f0;
       font-family: monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: start;
-      height: 100vh;
-      padding: 20px;
-      margin: 0;
-    }
-
-    #tela {
       white-space: pre;
       font-size: 14px;
-      border: 2px solid lime;
-      padding: 10px;
-      max-width: 100%;
-      overflow-x: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-
-    h1 {
-      color: white;
-      margin-bottom: 10px;
+    #tela {
+      line-height: 1.1;
     }
   </style>
 </head>
 <body>
-
-  <h1>ASCII F1 Grand Prix</h1>
-  <div id="tela">Carregando jogo...</div>
+  <pre id="tela"></pre>
 
   <script>
     const tela = document.getElementById("tela");
@@ -44,25 +31,35 @@
       tela.textContent = texto;
     }
 
-    function iniciarJogo() {
-      const mensagem = [
-        "==============================",
-        "      ASCII F1 GRAND PRIX     ",
-        "==============================",
-        "",
-        " 🏁 Prepare-se para correr!",
-        " Sistema pronto para receber a pista...",
-        "",
-        " Em breve: Player, IA, Pista de Interlagos, Colisões...",
-        "",
-        " Pressione qualquer tecla para iniciar (futuro)..."
-      ];
+    // A pista de Interlagos em ASCII (simplificada!)
+    const pista = [
+      "          ||          ",
+      "          ||          ",
+      "         /  \\         ",
+      "        |    |        ",
+      "        |    |        ",
+      "       /      \\       ",
+      "      |        |      ",
+      "     |          |     ",
+      "     |          |     ",
+      "     \\          /     ",
+      "      \\        /      ",
+      "       \\      /       ",
+      "        |    |        ",
+      "        |    |        ",
+      "         \\  /         ",
+      "          ||          ",
+      "          ||          ",
+      "          ||          ",
+      "          ||          ",
+      "          ||          ",
+    ];
 
-      desenhar(mensagem.join("\n"));
+    function exibirPista() {
+      desenhar(pista.join("\n"));
     }
 
-    window.onload = iniciarJogo;
+    window.onload = exibirPista;
   </script>
-
 </body>
 </html>
