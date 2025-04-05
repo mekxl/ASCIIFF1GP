@@ -94,4 +94,4 @@ function moveOpponents() {
 
 // Início do jogo
 renderTrack(INTERLAGOS_TRACK, playerPosition);
-setTimeout(showLightsAndStartRace, 2000);
+setTimeout(show LightsAndStartRace, 2000);
