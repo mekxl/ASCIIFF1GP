@@ -3,63 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ASCII F1 Grand Prix</title>
+  <title>ASCII F1 GP</title>
   <style>
     body {
-      background: #000;
-      color: #0f0;
+      background-color: black;
+      color: lime;
       font-family: monospace;
-      white-space: pre;
       font-size: 14px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      white-space: pre;
+      margin: 0;
+      padding: 20px;
     }
-    #tela {
+    #game {
       line-height: 1.1;
     }
   </style>
 </head>
 <body>
-  <pre id="tela"></pre>
+  <div id="game">Carregando pista de Interlagos...</div>
 
-  <script>
-    const tela = document.getElementById("tela");
-
-    function desenhar(texto) {
-      tela.textContent = texto;
-    }
-
-    // A pista de Interlagos em ASCII (simplificada!)
-    const pista = [
-      "          ||          ",
-      "          ||          ",
-      "         /  \\         ",
-      "        |    |        ",
-      "        |    |        ",
-      "       /      \\       ",
-      "      |        |      ",
-      "     |          |     ",
-      "     |          |     ",
-      "     \\          /     ",
-      "      \\        /      ",
-      "       \\      /       ",
-      "        |    |        ",
-      "        |    |        ",
-      "         \\  /         ",
-      "          ||          ",
-      "          ||          ",
-      "          ||          ",
-      "          ||          ",
-      "          ||          ",
-    ];
-
-    function exibirPista() {
-      desenhar(pista.join("\n"));
-    }
-
-    window.onload = exibirPista;
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
