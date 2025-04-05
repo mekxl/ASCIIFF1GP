@@ -4,13 +4,10 @@ const largura = 40;
 const altura = 20;
 let pista = [];
 let jogadorX = Math.floor(largura / 2);
-let voltasTotais = 5;
-let voltasCompletas = 0;
-let pistaDesenhada = false;
-let posicaoY = altura - 2; // onde o jogador aparece
+let posicaoY = altura - 2;
 let pistaPronta = false;
+let podeMover = false;
 
-// Traçado simplificado da pista de Interlagos em ASCII (top-down)
 const interlagos = [
   "          ||          ",
   "          ||          ",
@@ -42,19 +39,20 @@ function desenharPista() {
   pistaPronta = true;
 }
 
-// Desenha o jogador no meio da pista
 function desenharJogo() {
   if (!pistaPronta) return;
 
   const copia = pista.slice(); // cópia da pista
   const linha = copia[posicaoY].split("");
-  linha[jogadorX] = "^"; // símbolo do carro do jogador
+  linha[jogadorX] = "^"; // carro do jogador
   copia[posicaoY] = linha.join("");
 
   gameElement.textContent = copia.join("\n");
 }
 
 function moverJogador(dx) {
+  if (!podeMover) return;
+
   jogadorX += dx;
   if (jogadorX < 0) jogadorX = 0;
   if (jogadorX >= largura) jogadorX = largura - 1;
@@ -66,6 +64,32 @@ window.addEventListener("keydown", (event) => {
   if (event.key === "ArrowRight") moverJogador(1);
 });
 
-// Inicia o jogo
-desenharPista();
-desenharJogo();
+// Sequência de luzes de largada estilo F1
+function iniciarLargada() {
+  let luzes = 0;
+  const totalLuzes = 5;
+
+  function mostrarLuzes() {
+    luzes++;
+    const luzesAtuais = Array(luzes).fill("🔴").join(" ");
+    gameElement.textContent = "\n\n     LARGADA F1\n\n     " + luzesAtuais;
+
+    if (luzes < totalLuzes) {
+      setTimeout(mostrarLuzes, 1000);
+    } else {
+      setTimeout(() => {
+        gameElement.textContent = "\n\n     LARGADA F1\n\n     🟢 VAI!!!";
+        podeMover = true;
+        setTimeout(() => {
+          desenharPista();
+          desenharJogo();
+        }, 1000);
+      }, 1000);
+    }
+  }
+
+  mostrarLuzes();
+}
+
+// Início do jogo
+iniciarLargada();
