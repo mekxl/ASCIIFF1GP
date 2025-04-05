@@ -48,7 +48,6 @@ function renderStartLights(step) {
 function startRace() {
   raceStarted = true;
   renderTrack(INTERLAGOS_TRACK, playerPosition);
-  // A próxima etapa vai colocar os carros se movendo
 }
 
 function showLightsAndStartRace() {
