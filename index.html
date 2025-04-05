@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>ASCII F1 Grand Prix</title>
+  <style>
+    body {
+      background-color: black;
+      color: lime;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      height: 100vh;
+      padding: 20px;
+      margin: 0;
+    }
+
+    #tela {
+      white-space: pre;
+      font-size: 14px;
+      border: 2px solid lime;
+      padding: 10px;
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    h1 {
+      color: white;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>ASCII F1 Grand Prix</h1>
+  <div id="tela">Carregando jogo...</div>
+
+  <script>
+    const tela = document.getElementById("tela");
+
+    function desenhar(texto) {
+      tela.textContent = texto;
+    }
+
+    function iniciarJogo() {
+      const mensagem = [
+        "==============================",
+        "      ASCII F1 GRAND PRIX     ",
+        "==============================",
+        "",
+        " 🏁 Prepare-se para correr!",
+        " Sistema pronto para receber a pista...",
+        "",
+        " Em breve: Player, IA, Pista de Interlagos, Colisões...",
+        "",
+        " Pressione qualquer tecla para iniciar (futuro)..."
+      ];
+
+      desenhar(mensagem.join("\n"));
+    }
+
+    window.onload = iniciarJogo;
+  </script>
+
+</body>
+</html>
