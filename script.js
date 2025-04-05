@@ -1,26 +1,26 @@
 const trackElement = document.getElementById("game");
 
 const INTERLAGOS_TRACK = [
-  "                   ||                   ",
-  "                   ||                   ",
-  "                  /  \\                  ",
-  "                 |    |                 ",
-  "                 |    |                 ",
-  "                /      \\                ",
-  "               |        |               ",
-  "              |          |              ",
-  "              |          |              ",
-  "              \\          /              ",
-  "               \\        /               ",
-  "                \\      /                ",
-  "                 |    |                 ",
-  "                 |    |                 ",
-  "                  \\  /                  ",
-  "                   ||                   ",
-  "                   ||                   ",
-  "                   ||                   ",
-  "                   ||                   ",
-  "                   ||                   ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
+  " |                          | ",
 ];
 
 let playerPosition = { x: 20, y: 18 };
@@ -82,7 +82,7 @@ function moveOpponents() {
   opponents.forEach(opponent => {
     opponent.x += opponent.direction; // Move o carro adversário
     // Verifica se o carro adversário bateu nas bordas
-    if (opponent.x <= 0 || opponent.x >= INTERLAGOS_TRACK[0].length) {
+    if (opponent.x <= 1 || opponent.x >= INTERLAGOS_TRACK[0].length - 2) {
       opponent.direction *= -1; // Inverte a direção
     }
   });
